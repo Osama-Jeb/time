@@ -1,0 +1,29 @@
+.clockContainer {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #19E0E3;
+    background: rgb(21, 87, 88);
+    background: radial-gradient(circle, rgba(21, 87, 88, 1) 0%, rgba(2, 6, 7, 1) 100%);
+
+    .period {
+        width: 50%;
+        text-align: end;
+    }
+
+    .clock {
+        font-family: "orb";
+        font-size: 7rem;
+    }
+
+    .days {
+        .weekday {
+            border: 2px solid #19E0E3;
+            padding: 20px;
+            border-radius: 20px;
+        }
+    }
+}
