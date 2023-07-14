@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import "./_chronometer.scss"
+
 
 export const Chronometer = () => {
   const [seconds, setSeconds] = useState(0);
@@ -34,17 +36,16 @@ export const Chronometer = () => {
     setTimeout(() => {
       setSeconds(0);
       setStartStop("START");
-    }, 200);
+    }, 800);
   }
   return (
     <>
-      <h1>Hello to ABOUT</h1>
       <div className="chrono">
         <div className="chronoBtns">
-          <button className="action-button btn btn-success" onClick={startChrono}>{startStop}</button>
-          <button className="reset-button btn btn-danger" onClick={resetChrono}>RESET</button>
+          <button className="startBtn" onClick={startChrono}>{startStop}</button>
+          <button className="resetBtn" onClick={resetChrono}>RESET</button>
         </div>
-        <h1 className="chrono-heading">{result}</h1>
+        <h1 className="chronoTimer">{result}</h1>
       </div>
     </>
   );

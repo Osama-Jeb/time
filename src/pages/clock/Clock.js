@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./_clock.scss"
 
 
 export const Clock = () => {

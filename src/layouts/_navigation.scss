@@ -3,7 +3,10 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: #207d80;
+    // background-color: #207d80;
+    background: rgb(21, 87, 88);
+    background: radial-gradient(circle, rgba(21, 87, 88, 1) 0%, rgba(2, 6, 7, 1) 100%);
+
     a{
         text-decoration: none;
         color: white;
