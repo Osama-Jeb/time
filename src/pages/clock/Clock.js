@@ -32,7 +32,7 @@ export const Clock = () => {
 
   return (
     <>
-      <div class="clockContainer">
+      <div className="clockContainer">
         <h1 className="period">{meridiem.format(day)}</h1>
         <div class="clock">
           <h1>{clock.format(day)}</h1>

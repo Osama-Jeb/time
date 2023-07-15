@@ -20,7 +20,7 @@ export const Chronometer = () => {
   }, [isStarted, millis])
 
   // Brought to you by our sponsor: StackOverflow
-  const result = new Date(seconds * 1000).toISOString().slice(11, 19) + ":" + millis.toString().padStart(2, "0");;
+  const result = new Date(seconds * 1000).toISOString().slice(11, 19) + ":" + millis.toString().padStart(2, "0");
 
   const [startStop, setStartStop] = useState("START");
   const startChrono = (event) => {

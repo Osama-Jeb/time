@@ -1,0 +1,33 @@
+.timer{
+    font-family: "orb";
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    color: #19E0E3;
+    background: rgb(21, 87, 88);
+    background: radial-gradient(circle, rgba(21, 87, 88, 1) 0%, rgba(2, 6, 7, 1) 100%);
+    h1{
+        font-size: 7vw;
+    }
+    .selections{
+        select{
+            padding: 20px;
+            margin: 20px;
+            border-radius: 20px;
+            font-size: 20px;
+            width: 20vw;
+            text-align: center;
+            color: rgb(248, 248, 248);
+            background: rgb(21, 87, 88);
+            background: radial-gradient(circle, rgba(21, 87, 88, 1) 0%, rgba(2, 6, 7, 1) 150%);
+            option{
+                color: black;
+                background-color: #19E0E3;
+            }
+        
+        }
+    }
+}
