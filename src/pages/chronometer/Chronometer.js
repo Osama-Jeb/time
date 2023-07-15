@@ -4,48 +4,55 @@ import "./_chronometer.scss"
 
 export const Chronometer = () => {
   const [seconds, setSeconds] = useState(0);
+  const [millis, setMillis] = useState(0);
   const [isStarted, setIsStarted] = useState(false)
   useEffect(() => {
     if (isStarted) {
       setTimeout(() => {
-        setSeconds(seconds + 1)
-      }, 1000);
+        if (millis == 99) {
+          setMillis(0)
+          setSeconds(seconds + 1)
+        } else {
+          setMillis(millis + 1)
+        }
+      }, 10);
     }
-  })
+  }, [isStarted, millis])
 
-  const date = new Date(null);
-  date.setSeconds(seconds); // specify value for SECONDS here
-  const result = date.toISOString().slice(11, 19);
-
-  //! Same as the above 3 lines but shorter
-  // new Date(SECONDS * 1000).toISOString().slice(11, 19);
+  // Brought to you by our sponsor: StackOverflow
+  const result = new Date(seconds * 1000).toISOString().slice(11, 19) + ":" + millis.toString().padStart(2, "0");;
 
   const [startStop, setStartStop] = useState("START");
-  const startChrono = () => {
+  const startChrono = (event) => {
     if (isStarted) {
       setIsStarted(!isStarted);
       setStartStop("START");
     } else {
       setIsStarted(!isStarted);
-      setStartStop("STOP");
+      setStartStop("PAUSE");
     }
+    event.target.classList.toggle("pause")
   }
 
   const resetChrono = () => {
     setIsStarted(false);
     setTimeout(() => {
       setSeconds(0);
+      setMillis(0);
       setStartStop("START");
-    }, 800);
+    }, 11);
   }
+
   return (
     <>
       <div className="chrono">
-        <div className="chronoBtns">
-          <button className="startBtn" onClick={startChrono}>{startStop}</button>
-          <button className="resetBtn" onClick={resetChrono}>RESET</button>
+        <div className="chronoTimer">
+          <h1>{result}</h1>
         </div>
-        <h1 className="chronoTimer">{result}</h1>
+        <div className="chronoBtns">
+          <button className="startBtn pause btn rounded-pill" onClick={startChrono}>{startStop}</button>
+          <button className="resetBtn btn rounded-pill" onClick={resetChrono}>RESET</button>
+        </div>
       </div>
     </>
   );

@@ -34,8 +34,10 @@ export const Clock = () => {
     <>
       <div class="clockContainer">
         <h1 className="period">{meridiem.format(day)}</h1>
-        <h1 class="clock">{clock.format(day)}</h1>
-        <div className="days d-flex align-items-center gap-4">
+        <div class="clock">
+          <h1>{clock.format(day)}</h1>
+        </div>
+        <div className="days d-flex align-items-center justify-content-center gap-4">
           {
             week.map((element) =>
               element == weekDay.format(day) ?
