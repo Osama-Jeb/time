@@ -34,13 +34,13 @@ export const Timer = () => {
 
     const countDown = () => {
         setSeconds(seconds - 1)
-        if (seconds == 0) {
+        if (seconds === 0) {
             setSeconds(59);
             setMinutes(minutes - 1)
-            if (minutes == 0) {
+            if (minutes === 0) {
                 setMinutes(59)
                 setHours(hours - 1)
-                if (hours == 0 && minutes == 0 && seconds == 0) {
+                if (hours === 0 && minutes === 0 && seconds === 0) {
                     sound.play();
                     setStartStop("START")
                     setActive(false)

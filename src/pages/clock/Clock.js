@@ -30,9 +30,46 @@ export const Clock = () => {
     weekday: "short",
   })
 
+  const [expandBtn, setexpandBtn] = useState("Show")
+  const expand = (event) => {
+    event.target.classList.toggle("w-100")
+    event.target.parentElement.parentElement.classList.toggle("expand")
+    setexpandBtn(expandBtn == "Show" ? "Hide" : "Show")
+  }
+
   return (
     <>
       <div className="clockContainer">
+        <div className="sidebar-container">
+          <div className="sidebar">
+            <div className="worldClocks">
+              <button id="expandButton" onClick={(event) => {
+                expand(event)
+              }}>
+                {expandBtn}
+              </button>
+              <div className={expandBtn == "Hide" ? "" : "d-none"}>
+                
+                <div className="regionClock">
+                  <h1>{clock.format(day)}</h1>
+                </div>
+
+                <div className="regionClock">
+                  <h1>{clock.format(day)}</h1>
+                </div>
+
+                <div className="regionClock">
+                  <h1>{clock.format(day)}</h1>
+                </div>
+
+                <div className="regionClock">
+                  <h1>{clock.format(day)}</h1>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
         <h1 className="period">{meridiem.format(day)}</h1>
         <div class="clock">
           <h1>{clock.format(day)}</h1>
@@ -40,7 +77,7 @@ export const Clock = () => {
         <div className="days d-flex align-items-center justify-content-center gap-4">
           {
             week.map((element) =>
-              element == weekDay.format(day) ?
+              element === weekDay.format(day) ?
                 <p className="weekday">{element}</p>
                 :
                 <p>{element}</p>

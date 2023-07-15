@@ -9,7 +9,7 @@ export const Chronometer = () => {
   useEffect(() => {
     if (isStarted) {
       setTimeout(() => {
-        if (millis == 99) {
+        if (millis === 99) {
           setMillis(0)
           setSeconds(seconds + 1)
         } else {

@@ -9,6 +9,62 @@
     color: #19E0E3;
     background: rgb(21, 87, 88);
     background: radial-gradient(circle, rgba(21, 87, 88, 1) 0%, rgba(2, 6, 7, 1) 100%);
+    position: relative;
+
+    .sidebar-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 90vh;
+        overflow: hidden;
+
+        .sidebar {
+            position: absolute;
+            top: 0;
+            left: -240px;
+            width: 300px;
+            height: 0%;
+            background-color: rgb(14, 57, 58);
+            transition: all 1s ease;
+
+            .worldClocks {
+                padding: 20px;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                .regionClock{
+                    border: 1px white solid;
+                    margin: 10px;
+                    width: 20vw;
+                    // display: grid;
+                    // grid-template-columns: 20vw;
+                    text-align: center;
+                }
+
+                button {
+                    background-color: #19E0E3;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 60px;
+                    transition: all 1s ease;
+                }
+
+                button:hover {
+                    background-color: #10a3a5;
+                }
+            }
+        }
+
+        .sidebar.expand {
+            left: 0;
+            height: 100%;
+        }
+    }
 
     .period {
         width: 60%;
@@ -24,7 +80,7 @@
         border: 10px solid rgb(21, 87, 88);
         border-radius: 20px;
         margin-bottom: 10px;
-        
+
         h1 {
             font-size: 10vw;
             text-shadow: 1px 1px 10px #19E0E3;
@@ -33,6 +89,7 @@
 
     .days {
         width: 90vw;
+
         .weekday {
             border: 2px solid #19E0E3;
             padding: 20px;
