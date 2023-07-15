@@ -1,5 +1,6 @@
 import "./_timer.scss"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import alarm from "../../assets/audio/digiAlarm.mp3"
 
 export const Timer = () => {
     const [hours, setHours] = useState(0)
@@ -29,16 +30,77 @@ export const Timer = () => {
             }
         }
     }
+    let sound = new Audio(alarm)
+
+    const countDown = () => {
+        setSeconds(seconds - 1)
+        if (seconds == 0) {
+            setSeconds(59);
+            setMinutes(minutes - 1)
+            if (minutes == 0) {
+                setMinutes(59)
+                setHours(hours - 1)
+                if (hours == 0 && minutes == 0 && seconds == 0) {
+                    sound.play();
+                    setStartStop("START")
+                    setActive(false)
+                    setHours(0)
+                    setMinutes(0)
+                    setSeconds(0)
+                }
+            }
+        }
+    }
+
+    const [active, setActive] = useState(false);
+    const [startStop, setStartStop] = useState("START")
+
+    const timerStart = () => {
+        if (active) {
+            setActive(!active);
+            setStartStop("START");
+        } else {
+            setActive(!active);
+            setStartStop("PAUSE");
+        }
+        let selects = document.querySelectorAll("select");
+        selects.forEach((element) => {
+            element.classList.toggle("unclick")
+        })
+    }
+
+    useEffect(() => {
+        if (active) {
+            setTimeout(() => {
+                countDown();
+            }, 1000);
+        }
+    })
+
+    const timeReset = () => {
+        sound.remove();
+        setActive(false)
+        setStartStop("START")
+        setHours(0)
+        setMinutes(0)
+        setSeconds(0)
+        let selects = document.querySelectorAll("select");
+        selects.forEach((element) => {
+            element.classList.remove("unclick")
+        })
+    }
     return (
         <>
             <div className="timer">
+                <div className="timerHolder">
                 <h1>{hours.toString().padStart(2, "0")} :
                     {minutes.toString().padStart(2, "0")} :
                     {seconds.toString().padStart(2, "0")}</h1>
+                </div>
                 <div className="selections">
                     <div className="controls d-flex justify-content-center align-items-center">
-                        <button>Start</button>
-                        <button>Reset</button>
+                        <button onClick={timerStart}>{startStop}</button>
+                        <button onClick={timeReset}>RESET</button>
                     </div>
                     {
                         selection.map((element, index) =>
