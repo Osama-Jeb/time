@@ -7,7 +7,6 @@ export const Navigation = () => {
                 <NavLink to={"/"}>Clock</NavLink>
                 <NavLink to={"/chronometer"}>Chronometer</NavLink>
                 <NavLink to={"/timer"}>Timer</NavLink>
-                <NavLink to={"/alarm"}>Alarm</NavLink>
             </div>
         </>
     )

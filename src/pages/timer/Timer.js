@@ -93,9 +93,9 @@ export const Timer = () => {
         <>
             <div className="timer">
                 <div className="timerHolder">
-                <h1>{hours.toString().padStart(2, "0")} :
-                    {minutes.toString().padStart(2, "0")} :
-                    {seconds.toString().padStart(2, "0")}</h1>
+                    <h1>{hours.toString().padStart(2, "0")} :
+                        {minutes.toString().padStart(2, "0")} :
+                        {seconds.toString().padStart(2, "0")}</h1>
                 </div>
                 <div className="selections">
                     <div className="controls d-flex justify-content-center align-items-center">

@@ -36,10 +36,17 @@
                 height: 100%;
 
                 .regionClock {
-                    border: 1px white solid;
+                    border: 2px #19E0E3 solid;
+                    border-radius: 15px;
                     margin: 20px;
                     width: 20vw;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
                     text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
                 }
 
                 button {
@@ -66,9 +73,20 @@
         }
     }
 
-    .period {
+    // .period {
+    //     width: 60%;
+    //     text-align: end;
+    // }
+
+    .info{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
         width: 60%;
-        text-align: end;
+        *{
+            margin: 0;
+        }
     }
 
     .clock {
@@ -97,4 +115,8 @@
             font-weight: bolder;
         }
     }
+}
+
+.saudi{
+    color: rgb(21, 160, 21);
 }
