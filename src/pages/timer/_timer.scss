@@ -20,6 +20,29 @@
     }
 
     .selections {
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            * {
+
+                color: white;
+                border: none;
+                outline: none;
+                width: 20vw;
+                padding: 10px;
+            }
+
+            .startBtn {
+                background-color: #19E0E3;
+            }
+
+            .resetBtn {
+                background-color: #ea1010;
+            }
+        }
+
         select {
             padding: 20px;
             margin: 20px;
@@ -42,4 +65,7 @@
 
 .unclick {
     pointer-events: none;
+}
+.pause{
+    background-color: rgb(8, 219, 8) !important;
 }

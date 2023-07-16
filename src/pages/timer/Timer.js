@@ -55,7 +55,7 @@ export const Timer = () => {
     const [active, setActive] = useState(false);
     const [startStop, setStartStop] = useState("START")
 
-    const timerStart = () => {
+    const timerStart = (e) => {
         if (active) {
             setActive(!active);
             setStartStop("START");
@@ -63,6 +63,7 @@ export const Timer = () => {
             setActive(!active);
             setStartStop("PAUSE");
         }
+        e.target.classList.toggle("pause");
         let selects = document.querySelectorAll("select");
         selects.forEach((element) => {
             element.classList.toggle("unclick")
@@ -77,17 +78,20 @@ export const Timer = () => {
         }
     })
 
-    const timeReset = () => {
-        sound.remove();
-        setActive(false)
-        setStartStop("START")
-        setHours(0)
-        setMinutes(0)
-        setSeconds(0)
-        let selects = document.querySelectorAll("select");
-        selects.forEach((element) => {
-            element.classList.remove("unclick")
-        })
+    const timeReset = (event) => {
+        // sound.pause();
+        setTimeout(() => {
+            setActive(false)
+            setStartStop("START")
+            setHours(0)
+            setMinutes(0)
+            setSeconds(0)
+            let selects = document.querySelectorAll("select");
+            selects.forEach((element) => {
+                element.classList.remove("unclick")
+            })
+            event.target.previousElementSibling.classList.remove("pause")
+        }, 900);
     }
     return (
         <>
@@ -99,8 +103,10 @@ export const Timer = () => {
                 </div>
                 <div className="selections">
                     <div className="controls d-flex justify-content-center align-items-center">
-                        <button onClick={timerStart}>{startStop}</button>
-                        <button onClick={timeReset}>RESET</button>
+                        <button className="startBtn" onClick={(e) => {
+                            timerStart(e)
+                        }}>{startStop}</button>
+                        <button className="resetBtn" onClick={timeReset}>RESET</button>
                     </div>
                     {
                         selection.map((element, index) =>

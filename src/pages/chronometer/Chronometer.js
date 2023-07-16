@@ -34,13 +34,14 @@ export const Chronometer = () => {
     event.target.classList.toggle("pause")
   }
 
-  const resetChrono = () => {
+  const resetChrono = (event) => {
     setIsStarted(false);
     setTimeout(() => {
       setSeconds(0);
       setMillis(0);
       setStartStop("START");
     }, 11);
+    event.target.previousElementSibling.classList.remove("pause")
   }
 
   return (
