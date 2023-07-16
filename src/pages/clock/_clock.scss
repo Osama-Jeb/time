@@ -33,12 +33,12 @@
                 display: flex;
                 align-items: center;
                 flex-direction: column;
-                .regionClock{
+                height: 100%;
+
+                .regionClock {
                     border: 1px white solid;
-                    margin: 10px;
+                    margin: 20px;
                     width: 20vw;
-                    // display: grid;
-                    // grid-template-columns: 20vw;
                     text-align: center;
                 }
 

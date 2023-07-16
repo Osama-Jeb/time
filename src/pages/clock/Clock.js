@@ -37,6 +37,7 @@ export const Clock = () => {
     setexpandBtn(expandBtn == "Show" ? "Hide" : "Show")
   }
 
+  const test = clock.format(day).split(":")
   return (
     <>
       <div className="clockContainer">
@@ -49,23 +50,29 @@ export const Clock = () => {
                 {expandBtn}
               </button>
               <div className={expandBtn == "Hide" ? "" : "d-none"}>
-                
+
                 <div className="regionClock">
-                  <h1>{clock.format(day)}</h1>
+                  <h3><span className="text-light">Tok<span className="text-danger">yo, ja</span>pan</span> 
+                 </h3>
+                  <h1>{+test[0] + 8 >= 24 ? test[0] = 0 : +test[0] + 8} : {test[1]} : {test[2]}</h1>
                 </div>
 
                 <div className="regionClock">
-                  <h1>{clock.format(day)}</h1>
+                  <h4><span className="text-danger">New York</span> <span className="text-light"> City,</span> <span className="text-primary">USA</span></h4>
+                  <h1>{+test[0] - 5 >= 24 ? test[0] = 0 : +test[0] - 5} : {test[1]} : {test[2]}</h1>
                 </div>
 
                 <div className="regionClock">
-                  <h1>{clock.format(day)}</h1>
+                  <h4><span className="text-danger">Los</span> <span className="text-light"> Angeles,</span> <span className="text-primary">USA</span></h4>
+                  <h1>{+test[0] - 3 >= 24 ? test[0] = 0 : +test[0] - 3} : {test[1]} : {test[2]}</h1>
                 </div>
 
                 <div className="regionClock">
-                  <h1>{clock.format(day)}</h1>
+                  <h4>Sydney, Australia</h4>
+                  <h1>{+test[0] + 9 >= 24 ? test[0] = 0 : +test[0] + 9} : {test[1]} : {test[2]}</h1>
                 </div>
-                
+
+
               </div>
             </div>
           </div>
