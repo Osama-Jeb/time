@@ -79,7 +79,9 @@ export const Timer = () => {
     })
 
     const timeReset = (event) => {
-        // sound.pause();
+        sound.pause();
+        sound.currentTime = 0; // Rewind to the beginning
+
         setTimeout(() => {
             setActive(false)
             setStartStop("START")
@@ -96,6 +98,9 @@ export const Timer = () => {
     return (
         <>
             <div className="timer">
+                <div className="position-absolute bottom-0 end-0">
+                    <p className="text-danger">Don't be frightened, there's an alarm sound.</p>
+                </div>
                 <div className="timerHolder">
                     <h1>{hours.toString().padStart(2, "0")} :
                         {minutes.toString().padStart(2, "0")} :

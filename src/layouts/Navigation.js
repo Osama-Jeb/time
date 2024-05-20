@@ -3,7 +3,7 @@ import "./_navigation.scss"
 export const Navigation = () => {
     return (
         <>
-            <div className="navBar">
+            <div className="navBar orb">
                 <NavLink to={"/"}>Clock</NavLink>
                 <NavLink to={"/chronometer"}>Chronometer</NavLink>
                 <NavLink to={"/timer"}>Timer</NavLink>

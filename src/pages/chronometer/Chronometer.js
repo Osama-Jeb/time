@@ -17,7 +17,7 @@ export const Chronometer = () => {
         }
       }, 10);
     }
-  }, [isStarted, millis])
+  }, [isStarted, millis, seconds])
 
   // Brought to you by our sponsor: StackOverflow
   const result = new Date(seconds * 1000).toISOString().slice(11, 19) + ":" + millis.toString().padStart(2, "0");

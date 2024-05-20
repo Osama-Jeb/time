@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./_clock.scss"
 
-
 export const Clock = () => {
   const day = new Date();
 
@@ -24,7 +23,7 @@ export const Clock = () => {
   const expand = (event) => {
     event.target.classList.toggle("w-100")
     event.target.parentElement.parentElement.classList.toggle("expand")
-    setexpandBtn(expandBtn == "Show" ? "Hide" : "Show")
+    setexpandBtn(expandBtn === "Show" ? "Hide" : "Show")
   }
 
   let regClock = [
@@ -39,7 +38,7 @@ export const Clock = () => {
       zone: "America/New_York",
     },
     {
-      place: <><span className="saudi fw-bolder fs-3">المملكة العربية السعودية</span></>,
+      place: <>المملكة العربية السعودية</>,
       timeformat: "ar-EG",
       zone: "Asia/Riyadh",
     },
@@ -61,18 +60,18 @@ export const Clock = () => {
               }}>
                 {expandBtn}
               </button>
-              <div className={expandBtn == "Hide" ? "" : "d-none"}>
+              <div className={expandBtn === "Hide" ? "" : "d-none"}>
                 {
-                  regClock.map((element) =>
+                  regClock.map((clock) =>
                     <>
                       <div className="regionClock">
-                        <h4>{element.place}</h4>
-                        <h1>{new Intl.DateTimeFormat(element.timeformat, {
+                        <h4>{clock.place}</h4>
+                        <h1>{new Intl.DateTimeFormat(clock.timeformat, {
                           hour: "2-digit",
                           minute: "2-digit",
                           second: "2-digit",
                           hourCycle: "h24",
-                          timeZone: element.zone
+                          timeZone: clock.zone
                         }).format(day)}</h1>
                       </div>
                     </>
@@ -96,11 +95,11 @@ export const Clock = () => {
         </div>
         <div className="days d-flex align-items-center justify-content-center gap-4">
           {
-            week.map((element) =>
-              element === weekDay.format(day) ?
-                <p className="weekday">{element}</p>
+            week.map((weekday) =>
+              weekday === weekDay.format(day) ?
+                <p className="weekday">{weekday}</p>
                 :
-                <p>{element}</p>
+                <p>{weekday}</p>
             )
           }
         </div>

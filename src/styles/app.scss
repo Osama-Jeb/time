@@ -3,5 +3,17 @@
 
 @import "~bootstrap/scss/bootstrap";
 
-@import "./modules/allModules";
+/* width */
+select::-webkit-scrollbar {
+    width: 0.5vw;
+}
 
+/* Track */
+select::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+select::-webkit-scrollbar-thumb {
+    background: #00898b;
+}
